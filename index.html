@@ -3,62 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawsitive Training | Expert Dog & Puppy Training</title>
+    <title>Luxury Private Villas | Serenity Escapes</title>
+    <meta name="description" content="Experience unrivaled luxury in our exclusive private villas. Discover breathtaking views, private pools, and world-class service. Book your perfect getaway today.">
     
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        primary: '#d97706', /* Amber 600 */
-                        primaryDark: '#b45309', /* Amber 700 */
-                        dark: '#1e293b', /* Slate 800 */
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#AA8C2C',
+                            600: '#856D22',
+                        },
+                        charcoal: '#1A1A1A',
                     }
                 }
             }
         }
     </script>
-    
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
+        /* Custom Styles for aesthetics */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="fixed w-full z-50 glass-nav border-b border-gray-200 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                    <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                    <span class="font-bold text-2xl text-dark tracking-tight">Pawsitive<span class="text-primary">Training</span></span>
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-bold text-charcoal tracking-wider">
+                        SERENITY <span class="text-gold-500 text-sm block font-sans uppercase tracking-widest font-normal">Villas & Estates</span>
+                    </a>
                 </div>
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-600 hover:text-primary transition font-medium">Services</a>
-                    <a href="#why-us" class="text-gray-600 hover:text-primary transition font-medium">Why Us</a>
-                    <a href="#contact" class="text-gray-600 hover:text-primary transition font-medium">Contact</a>
-                    <a href="#contact" class="bg-primary hover:bg-primaryDark text-white px-6 py-2.5 rounded-full font-semibold shadow-md transition transform hover:-translate-y-0.5">Book a Session</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-gold-500 px-3 py-2 text-sm font-medium transition">The Experience</a>
+                    <a href="#amenities" class="text-gray-600 hover:text-gold-500 px-3 py-2 text-sm font-medium transition">Amenities</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-gold-500 px-3 py-2 text-sm font-medium transition">Reviews</a>
+                    <a href="#contact" class="text-gray-600 hover:text-gold-500 px-3 py-2 text-sm font-medium transition">Contact</a>
+                </nav>
+                <div class="hidden md:flex items-center">
+                    <a href="#inquire" class="bg-charcoal text-white px-6 py-3 rounded text-sm font-medium hover:bg-gold-500 transition duration-300 shadow-lg">
+                        Request a Quote
+                    </a>
                 </div>
-                <!-- Mobile menu button (Simplified for static template) -->
+                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-charcoal focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -66,256 +73,378 @@
                 </div>
             </div>
         </div>
-    </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gold-500 hover:bg-gray-50">The Experience</a>
+                <a href="#amenities" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gold-500 hover:bg-gray-50">Amenities</a>
+                <a href="#testimonials" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gold-500 hover:bg-gray-50">Reviews</a>
+                <a href="#inquire" class="block px-3 py-2 text-base font-medium text-gold-500 font-bold">Request a Quote</a>
+            </div>
+        </div>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="relative bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-            <div class="md:flex md:items-center md:justify-between gap-12">
-                
-                <!-- Hero Text -->
-                <div class="md:w-1/2 space-y-6 text-center md:text-left">
-                    <div class="inline-block bg-amber-100 text-primaryDark px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-2">
-                        Top-Rated Dog Trainers
-                    </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark leading-tight">
-                        Transform Your Dog's <span class="text-primary">Behavior</span> Today.
-                    </h1>
-                    <p class="text-lg text-gray-600 md:max-w-lg">
-                        Professional, positive reinforcement training for dogs of all ages and breeds. Build a lifelong bond of trust and obedience with your furry best friend.
-                    </p>
-                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <a href="#contact" class="bg-primary hover:bg-primaryDark text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg transition transform hover:-translate-y-1 text-center">
-                            Get a Free Evaluation
-                        </a>
-                        <a href="#services" class="bg-white border-2 border-gray-200 text-gray-700 hover:border-primary hover:text-primary px-8 py-4 rounded-full font-bold text-lg transition text-center">
-                            Explore Services
-                        </a>
-                    </div>
-                    
-                    <!-- Quick Trust Indicators -->
-                    <div class="pt-6 flex items-center justify-center md:justify-start gap-4 text-sm text-gray-500 font-medium">
-                        <div class="flex items-center gap-1">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Certified Trainers
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Positive Reinforcement
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hero Image -->
-                <div class="md:w-1/2 mt-12 md:mt-0 relative">
-                    <!-- Placeholder image matching the context -->
-                    <img src="https://placehold.co/600x450/e2e8f0/64748b?text=Happy+Trained+Dog+Photo" alt="Happy well-trained dog" class="rounded-2xl shadow-2xl w-full h-auto object-cover border-4 border-white">
-                    <!-- Floating Badge -->
-                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-4">
-                        <div class="bg-yellow-100 p-3 rounded-full">
-                            <svg class="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        </div>
-                        <div>
-                            <p class="font-bold text-dark text-lg">500+</p>
-                            <p class="text-sm text-gray-500">Happy Dogs Trained</p>
-                        </div>
-                    </div>
-                </div>
-                
+    <section class="relative h-screen flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80" alt="Luxury Villa Exterior with Pool" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mt-16">
+            <span class="text-gold-400 font-sans tracking-[0.2em] uppercase text-sm font-semibold mb-4 block">Your Exclusive Escape Awaits</span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6">
+                Experience Unrivaled <br>Luxury & Privacy
+            </h1>
+            <p class="mt-4 text-lg sm:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+                Discover breathtaking ocean views, private infinity pools, and bespoke 24/7 concierge service. Secure your perfect premium getaway today.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#inquire" class="bg-gold-500 text-white px-8 py-4 rounded font-medium text-lg hover:bg-gold-600 transition duration-300 w-full sm:w-auto shadow-xl">
+                    Check Availability
+                </a>
+                <a href="#about" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded font-medium text-lg hover:bg-white hover:text-charcoal transition duration-300 w-full sm:w-auto">
+                    Explore Villas
+                </a>
+            </div>
+            <!-- Trust Signals under Hero -->
+            <div class="mt-12 flex flex-wrap justify-center gap-6 text-white text-sm font-medium opacity-90">
+                <div class="flex items-center"><svg class="w-5 h-5 text-gold-400 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg> 5-Star Rated</div>
+                <div class="flex items-center"><svg class="w-5 h-5 text-gold-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> Secure Booking</div>
+                <div class="flex items-center"><svg class="w-5 h-5 text-gold-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg> Best Rate Guarantee</div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Luxurious Villa Interior" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                </div>
+                <div>
+                    <h2 class="text-gold-500 font-sans tracking-[0.15em] uppercase text-sm font-semibold mb-3">About Serenity</h2>
+                    <h3 class="text-3xl sm:text-4xl font-serif font-bold text-charcoal mb-6">A Sanctuary Designed for the Discerning Traveler</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        At Serenity Villas, we believe that true luxury lies in the details. Handpicked for their exceptional locations and architectural brilliance, our private estates offer an oasis of calm away from the world. 
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Whether you are planning a romantic retreat, a family gathering, or a corporate getaway, our dedicated team ensures every aspect of your stay is tailored to your exact preferences. From private chefs to customized itineraries, we handle everything.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 border-t border-gray-100 pt-8">
+                        <div>
+                            <h4 class="text-4xl font-serif text-charcoal font-bold mb-2">50+</h4>
+                            <p class="text-sm text-gray-500 uppercase tracking-wider">Exclusive Properties</p>
+                        </div>
+                        <div>
+                            <h4 class="text-4xl font-serif text-charcoal font-bold mb-2">24/7</h4>
+                            <p class="text-sm text-gray-500 uppercase tracking-wider">Concierge Service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="amenities" class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Training Programs</h2>
-                <p class="text-lg text-gray-600">Tailored solutions for every dog. Whether you have a new puppy or an older dog with behavioral challenges, we have a program for you.</p>
+                <h2 class="text-gold-500 font-sans tracking-[0.15em] uppercase text-sm font-semibold mb-3">World-Class Amenities</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-charcoal mb-6">Everything You Need, and More</h3>
+                <p class="text-gray-600">Experience the perfect blend of home comfort and five-star hotel services, all within the complete privacy of your own villa.</p>
             </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Amenity 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition duration-300 text-center">
+                    <div class="w-14 h-14 bg-gold-50 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold text-charcoal mb-3">Private Pools</h4>
+                    <p class="text-gray-500 text-sm">Temperature-controlled infinity pools offering panoramic ocean views.</p>
+                </div>
+                <!-- Amenity 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition duration-300 text-center">
+                    <div class="w-14 h-14 bg-gold-50 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold text-charcoal mb-3">Gourmet Dining</h4>
+                    <p class="text-gray-500 text-sm">In-villa private chefs preparing world-class, customized culinary experiences.</p>
+                </div>
+                <!-- Amenity 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition duration-300 text-center">
+                    <div class="w-14 h-14 bg-gold-50 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold text-charcoal mb-3">Daily Housekeeping</h4>
+                    <p class="text-gray-500 text-sm">Impeccable daily service ensuring your environment is always pristine.</p>
+                </div>
+                <!-- Amenity 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition duration-300 text-center">
+                    <div class="w-14 h-14 bg-gold-50 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold text-charcoal mb-3">Custom Itineraries</h4>
+                    <p class="text-gray-500 text-sm">Expert concierges to arrange private yacht tours, spa treatments, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-gold-500 font-sans tracking-[0.15em] uppercase text-sm font-semibold mb-3">Guest Experiences</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-charcoal mb-6">Don't Just Take Our Word For It</h3>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
-                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <!-- Review 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm relative">
+                    <div class="flex text-gold-400 mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-dark mb-3">Puppy Training</h3>
-                    <p class="text-gray-600 mb-6 line-clamp-3">Start your puppy off right! Covers socialization, potty training, crate training, and basic foundational commands to prevent bad habits early.</p>
-                    <ul class="space-y-2 mb-8 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 8-20 Weeks Old</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Biting & Chewing Control</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Basic Manners</li>
-                    </ul>
-                    <a href="#contact" class="text-primary font-bold hover:text-primaryDark flex items-center gap-1">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    <p class="text-gray-600 italic mb-6">"Absolutely stunning. The pictures didn't do it justice. The concierge team arranged a private yacht tour that made our anniversary unforgettable. We will definitely be back."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Reviewer" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h5 class="text-sm font-bold text-charcoal">Sarah Jenkins</h5>
+                            <p class="text-xs text-gray-500">New York, NY</p>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Service 2 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Most Popular</div>
-                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <!-- Review 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm relative">
+                    <div class="flex text-gold-400 mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-dark mb-3">Obedience Training</h3>
-                    <p class="text-gray-600 mb-6 line-clamp-3">Master real-world obedience. Teach your dog to listen off-leash, stop pulling on walks, and reliably come when called under distraction.</p>
-                    <ul class="space-y-2 mb-8 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Loose Leash Walking</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Reliable Recall (Come)</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sit/Stay under distraction</li>
-                    </ul>
-                    <a href="#contact" class="text-primary font-bold hover:text-primaryDark flex items-center gap-1">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    <p class="text-gray-600 italic mb-6">"The ultimate luxury escape. The private chef was phenomenal, and the villa itself was a masterpiece of design. We felt completely pampered from the moment we arrived."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Reviewer" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h5 class="text-sm font-bold text-charcoal">Marcus T.</h5>
+                            <p class="text-xs text-gray-500">London, UK</p>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Service 3 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
-                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                <!-- Review 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm relative">
+                    <div class="flex text-gold-400 mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-dark mb-3">Behavior Modification</h3>
-                    <p class="text-gray-600 mb-6 line-clamp-3">Targeted solutions for severe issues like leash reactivity, resource guarding, separation anxiety, and excessive barking.</p>
-                    <ul class="space-y-2 mb-8 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Leash Reactivity & Aggression</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Separation Anxiety</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Fear & Phobia Management</li>
-                    </ul>
-                    <a href="#contact" class="text-primary font-bold hover:text-primaryDark flex items-center gap-1">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    <p class="text-gray-600 italic mb-6">"Impeccable service and complete privacy. It was the exact reset our family needed. The infinity pool overlooking the ocean is something straight out of a movie."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Reviewer" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h5 class="text-sm font-bold text-charcoal">Elena R.</h5>
+                            <p class="text-xs text-gray-500">Sydney, AU</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section id="why-us" class="py-20 bg-white">
+    <section id="inquire" class="py-24 bg-charcoal text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex gap-16 items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="https://placehold.co/600x600/f8fafc/94a3b8?text=Trainer+Working+With+Dog" alt="Trainer working with a dog" class="rounded-2xl shadow-lg w-full h-auto object-cover">
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Why Choose Pawsitive Training?</h2>
-                    <p class="text-gray-600 text-lg mb-8">We don't just train dogs; we educate owners. Our proven methodologies focus on clear communication and mutual respect.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-dark">Force-Free & Positive</h4>
-                                <p class="text-gray-600 mt-1">We rely on modern, science-based positive reinforcement techniques. No shock collars, no fear tactics.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-dark">Certified Professionals</h4>
-                                <p class="text-gray-600 mt-1">Our trainers are fully certified, insured, and undergo continuous education in canine behavioral science.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-dark">Lifetime Support</h4>
-                                <p class="text-gray-600 mt-1">Graduates of our programs receive lifetime email/phone support to ensure long-term training success.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action / Contact Form Section -->
-    <section id="contact" class="bg-primary text-white py-20">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Transform Your Dog?</h2>
-            <p class="text-lg md:text-xl text-amber-100 mb-10">Fill out the form below or call us today to schedule your initial consultation.</p>
-            
-            <div class="bg-white text-gray-800 rounded-2xl shadow-2xl p-8 md:p-12 text-left">
-                <form action="#" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-                            <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="John Doe">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                            <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="(555) 123-4567">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Dog's Breed & Age</label>
-                        <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="e.g., Golden Retriever, 6 months">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Main Training Goals / Issues</label>
-                        <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Tell us how we can help..."></textarea>
-                    </div>
-                    <button type="button" class="w-full bg-primary hover:bg-primaryDark text-white font-bold text-lg py-4 rounded-lg shadow-md transition transform hover:-translate-y-0.5">
-                        Submit Request
-                    </button>
-                    <p class="text-xs text-center text-gray-500 mt-4">By submitting this form, you agree to our privacy policy. We will never spam you.</p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-gray-300 py-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                        <span class="font-bold text-xl text-white tracking-tight">Pawsitive<span class="text-primary">Training</span></span>
-                    </div>
-                    <p class="text-gray-400 text-sm max-w-sm">
-                        Dedicated to building better relationships between dogs and their owners through positive, reward-based training methods.
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-start">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-gold-500 font-sans tracking-[0.15em] uppercase text-sm font-semibold mb-3">Begin Your Journey</h2>
+                    <h3 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-6">Request Your Personalized Quote</h3>
+                    <p class="text-gray-300 mb-8 leading-relaxed max-w-lg">
+                        Provide us with your details, and our luxury travel specialists will contact you within 24 hours to curate your perfect itinerary. There is no commitment required.
                     </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-gold-500 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <span class="text-gray-300">1-800-555-0199 (Available 24/7)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-gold-500 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span class="text-gray-300">reservations@serenityvillas-example.com</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Form -->
+                <div class="bg-white rounded-lg p-8 shadow-2xl relative">
+                    <form id="lead-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-gold-500 focus:border-gold-500 text-gray-900 bg-gray-50 placeholder-gray-400" placeholder="John">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-gold-500 focus:border-gold-500 text-gray-900 bg-gray-50 placeholder-gray-400" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-gold-500 focus:border-gold-500 text-gray-900 bg-gray-50 placeholder-gray-400" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-gold-500 focus:border-gold-500 text-gray-900 bg-gray-50 placeholder-gray-400" placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="arrivalDate" class="block text-sm font-medium text-gray-700 mb-1">Estimated Arrival</label>
+                                <input type="date" id="arrivalDate" name="arrivalDate" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-gold-500 focus:border-gold-500 text-gray-900 bg-gray-50">
+                            </div>
+                            <div>
+                                <label for="guests" class="block text-sm font-medium text-gray-700 mb-1">Number of Guests</label>
+                                <select id="guests" name="guests" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-gold-500 focus:border-gold-500 text-gray-900 bg-gray-50">
+                                    <option value="1-2">1-2 Guests</option>
+                                    <option value="3-4">3-4 Guests</option>
+                                    <option value="5-8">5-8 Guests</option>
+                                    <option value="9+">9+ Guests</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Special Requests or Occasion</label>
+                            <textarea id="message" name="message" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-gold-500 focus:border-gold-500 text-gray-900 bg-gray-50 placeholder-gray-400" placeholder="Tell us how we can make your stay special..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gold-500 text-white font-bold py-4 rounded-md hover:bg-gold-600 transition duration-300 shadow-md">
+                            Get Your Custom Quote
+                        </button>
+                        <p class="text-xs text-gray-500 text-center mt-4">
+                            By submitting this form, you agree to our Privacy Policy and consent to being contacted regarding your inquiry.
+                        </p>
+                    </form>
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="form-success" class="hidden absolute inset-0 bg-white rounded-lg flex flex-col items-center justify-center p-8 text-center z-10">
+                        <svg class="w-16 h-16 text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="text-2xl font-serif font-bold text-charcoal mb-2">Request Received</h3>
+                        <p class="text-gray-600">Thank you for your inquiry. One of our luxury specialists will be in touch shortly.</p>
+                        <button id="reset-form" class="mt-6 text-gold-500 font-medium hover:underline focus:outline-none">Submit another request</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand & Address -->
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <span class="font-serif text-2xl font-bold text-white tracking-wider block mb-4">
+                        SERENITY <span class="text-gold-500 text-sm block font-sans uppercase tracking-widest font-normal">Villas & Estates</span>
+                    </span>
+                    <p class="text-sm text-gray-400 mb-4 max-w-xs">Curating extraordinary private villa experiences for the world's most discerning travelers.</p>
+                    <address class="not-italic text-sm text-gray-400 leading-relaxed">
+                        <strong>Corporate Office:</strong><br>
+                        124 Luxury Villa Drive, Suite 100<br>
+                        Beverly Hills, CA 90210<br>
+                        United States
+                    </address>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Legal & Policies</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#services" class="hover:text-primary transition">Services</a></li>
-                        <li><a href="#why-us" class="hover:text-primary transition">About Us</a></li>
-                        <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+                        <!-- Links must be present for Google Ads compliance (Privacy, Terms) -->
+                        <li><a href="#" class="hover:text-gold-500 transition duration-150">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition duration-150">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition duration-150">Refund & Cancellation Policy</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition duration-150">Cookie Policy</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact Info -->
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Contact Info</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li>📞 (555) 123-4567</li>
-                        <li>✉️ hello@pawsitivetraining.example.com</li>
-                        <li>📍 123 Dogwood Lane, Canine City, CA 90210</li>
+                    <h4 class="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><strong>Phone:</strong> <a href="tel:18005550199" class="hover:text-gold-500 transition duration-150">1-800-555-0199</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:reservations@serenityvillas-example.com" class="hover:text-gold-500 transition duration-150">reservations@serenityvillas-example.com</a></li>
+                        <li><strong>Support Hours:</strong> 24/7 Concierge Support</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-                <p>&copy; 2026 Pawsitive Training LLC. All rights reserved.</p>
-                <!-- Essential Trust Links for Ad Compliance -->
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
-                    <a href="#" class="hover:text-white transition">Refund Policy</a>
-                </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; <span id="year"></span> Serenity Villas & Estates. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Not a real entity. Created for demonstration purposes.</p>
             </div>
         </div>
     </footer>
 
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission handling (Simulated to prevent actual redirects/reloads)
+        const form = document.getElementById('lead-form');
+        const successMessage = document.getElementById('form-success');
+        const resetBtn = document.getElementById('reset-form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevents page reload
+            // In a real scenario, an AJAX request would go here
+            
+            // Show success UI
+            successMessage.classList.remove('hidden');
+            form.reset();
+        });
+
+        resetBtn.addEventListener('click', () => {
+            successMessage.classList.add('hidden');
+        });
+
+        // Smooth scroll fallback for browsers that don't support scroll-behavior: smooth
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return; // Ignore empty links like privacy policy
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
