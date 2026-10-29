@@ -3,319 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawsitive Training | Expert Dog & Puppy Training</title>
-    
-    <!-- Load Tailwind CSS -->
+    <title>Savoria Recipes - Delicious, Easy-to-Follow Culinary Creations</title>
+    <meta name="description" content="Discover Savoria Recipes. Get access to our exclusive, easy-to-follow recipes for quick meals, healthy eats, and decadent desserts. Sign up for our free weekly recipe book!">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        amber: {
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        },
+                        sage: {
+                            500: '#73937E',
+                            600: '#5A7563',
+                            700: '#43584A',
+                        }
+                    },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#d97706', /* Amber 600 */
-                        primaryDark: '#b45309', /* Amber 700 */
-                        dark: '#1e293b', /* Slate 800 */
+                        serif: ['Playfair Display', 'serif'],
                     }
                 }
             }
         }
     </script>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
+        /* Custom styles to ensure smooth rendering and strict single-file compliance */
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Modal hidden state */
+        .hidden { display: none !important; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-amber-200 selection:text-amber-900">
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                    <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                    <span class="font-bold text-2xl text-dark tracking-tight">Pawsitive<span class="text-primary">Training</span></span>
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-3xl font-serif font-bold text-sage-600 flex items-center gap-2">
+                        <svg class="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        Savoria
+                    </a>
                 </div>
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-600 hover:text-primary transition font-medium">Services</a>
-                    <a href="#why-us" class="text-gray-600 hover:text-primary transition font-medium">Why Us</a>
-                    <a href="#contact" class="text-gray-600 hover:text-primary transition font-medium">Contact</a>
-                    <a href="#contact" class="bg-primary hover:bg-primaryDark text-white px-6 py-2.5 rounded-full font-semibold shadow-md transition transform hover:-translate-y-0.5">Book a Session</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-stone-600 hover:text-sage-600 px-3 py-2 text-sm font-medium transition-colors">About Us</a>
+                    <a href="#recipes" class="text-stone-600 hover:text-sage-600 px-3 py-2 text-sm font-medium transition-colors">Our Recipes</a>
+                    <a href="#testimonials" class="text-stone-600 hover:text-sage-600 px-3 py-2 text-sm font-medium transition-colors">Testimonials</a>
+                </nav>
+                <div class="hidden md:flex items-center">
+                    <a href="#lead-capture" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2.5 rounded-full font-semibold transition-colors shadow-md hover:shadow-lg">
+                        Get Free Recipe Book
+                    </a>
                 </div>
-                <!-- Mobile menu button (Simplified for static template) -->
+                <!-- Mobile Menu Button (visual only for static landing page) -->
                 <div class="md:hidden flex items-center">
-                    <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                    <button class="text-stone-600 hover:text-sage-600 focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="relative bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-            <div class="md:flex md:items-center md:justify-between gap-12">
-                
-                <!-- Hero Text -->
-                <div class="md:w-1/2 space-y-6 text-center md:text-left">
-                    <div class="inline-block bg-amber-100 text-primaryDark px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-2">
-                        Top-Rated Dog Trainers
-                    </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark leading-tight">
-                        Transform Your Dog's <span class="text-primary">Behavior</span> Today.
-                    </h1>
-                    <p class="text-lg text-gray-600 md:max-w-lg">
-                        Professional, positive reinforcement training for dogs of all ages and breeds. Build a lifelong bond of trust and obedience with your furry best friend.
-                    </p>
-                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <a href="#contact" class="bg-primary hover:bg-primaryDark text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg transition transform hover:-translate-y-1 text-center">
-                            Get a Free Evaluation
-                        </a>
-                        <a href="#services" class="bg-white border-2 border-gray-200 text-gray-700 hover:border-primary hover:text-primary px-8 py-4 rounded-full font-bold text-lg transition text-center">
-                            Explore Services
-                        </a>
-                    </div>
-                    
-                    <!-- Quick Trust Indicators -->
-                    <div class="pt-6 flex items-center justify-center md:justify-start gap-4 text-sm text-gray-500 font-medium">
-                        <div class="flex items-center gap-1">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Certified Trainers
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Positive Reinforcement
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 pt-16 lg:pt-24 px-4 sm:px-6 lg:px-8">
+                <main class="mx-auto max-w-7xl">
+                    <div class="sm:text-center lg:text-left">
+                        <span class="text-amber-600 font-semibold tracking-wider uppercase text-sm mb-4 block">Master the Art of Cooking</span>
+                        <h1 class="text-4xl tracking-tight font-serif font-extrabold text-stone-900 sm:text-5xl md:text-6xl leading-tight">
+                            <span class="block xl:inline">Bring the Joy of</span>
+                            <span class="block text-sage-600">Gourmet Dining Home</span>
+                        </h1>
+                        <p class="mt-3 text-base text-stone-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            Discover hundreds of chef-curated, easy-to-follow recipes that turn everyday meals into extraordinary culinary experiences. Join Savoria today and elevate your kitchen skills.
+                        </p>
+                        <div class="mt-8 sm:flex sm:justify-center lg:justify-start">
+                            <div class="rounded-md shadow">
+                                <a href="#lead-capture" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-amber-500 hover:bg-amber-600 md:py-4 md:text-lg md:px-10 transition-all transform hover:scale-105">
+                                    Send Me Free Recipes
+                                </a>
+                            </div>
+                            <div class="mt-3 sm:mt-0 sm:ml-3">
+                                <a href="#recipes" class="w-full flex items-center justify-center px-8 py-3 border border-sage-600 text-base font-medium rounded-full text-sage-600 bg-white hover:bg-sage-50 md:py-4 md:text-lg md:px-10 transition-colors">
+                                    Explore Menu
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </main>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Beautifully plated gourmet food spread">
+        </div>
+    </section>
 
-                <!-- Hero Image -->
-                <div class="md:w-1/2 mt-12 md:mt-0 relative">
-                    <!-- Placeholder image matching the context -->
-                    <img src="https://placehold.co/600x450/e2e8f0/64748b?text=Happy+Trained+Dog+Photo" alt="Happy well-trained dog" class="rounded-2xl shadow-2xl w-full h-auto object-cover border-4 border-white">
-                    <!-- Floating Badge -->
-                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-4">
-                        <div class="bg-yellow-100 p-3 rounded-full">
-                            <svg class="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        </div>
-                        <div>
-                            <p class="font-bold text-dark text-lg">500+</p>
-                            <p class="text-sm text-gray-500">Happy Dogs Trained</p>
-                        </div>
-                    </div>
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-sage-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-10 lg:mb-0 rounded-2xl overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745a8728?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Chef preparing fresh ingredients in a modern kitchen" class="w-full h-auto object-cover">
                 </div>
-                
+                <div>
+                    <h2 class="text-3xl font-serif font-extrabold text-stone-900 mb-6">About Savoria Recipes</h2>
+                    <div class="w-20 h-1 bg-amber-500 mb-6"></div>
+                    <p class="text-lg text-stone-600 mb-4">
+                        At Savoria Recipes, we believe that great food shouldn't be complicated. Founded by a passionate team of culinary experts and home cooks, our mission is to demystify the kitchen and bring restaurant-quality flavors directly to your dining table.
+                    </p>
+                    <p class="text-lg text-stone-600 mb-6">
+                        Whether you are a busy professional looking for 30-minute weeknight dinners, or an enthusiastic host planning a weekend feast, our meticulously tested recipes guarantee success every single time. We source accessible ingredients and provide crystal-clear instructions so you can cook with confidence.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-stone-700">
+                            <svg class="h-6 w-6 text-sage-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Triple-tested for guaranteed results
+                        </li>
+                        <li class="flex items-center text-stone-700">
+                            <svg class="h-6 w-6 text-sage-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Nutritional information included
+                        </li>
+                        <li class="flex items-center text-stone-700">
+                            <svg class="h-6 w-6 text-sage-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Dietary-friendly alternatives for every dish
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
+    <!-- Services / Our Recipes Section -->
+    <section id="recipes" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Training Programs</h2>
-                <p class="text-lg text-gray-600">Tailored solutions for every dog. Whether you have a new puppy or an older dog with behavioral challenges, we have a program for you.</p>
+                <h2 class="text-amber-600 font-semibold tracking-wider uppercase text-sm mb-2">What We Offer</h2>
+                <h3 class="text-3xl font-serif font-extrabold text-stone-900 sm:text-4xl">Recipes for Every Occasion</h3>
+                <p class="mt-4 text-lg text-stone-500">From quick fixes to weekend showstoppers, discover our diverse categories tailored to fit your lifestyle and cravings.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
-                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-stone-100 hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Healthy power bowl with greens and eggs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <h3 class="text-2xl font-bold text-dark mb-3">Puppy Training</h3>
-                    <p class="text-gray-600 mb-6 line-clamp-3">Start your puppy off right! Covers socialization, potty training, crate training, and basic foundational commands to prevent bad habits early.</p>
-                    <ul class="space-y-2 mb-8 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 8-20 Weeks Old</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Biting & Chewing Control</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Basic Manners</li>
-                    </ul>
-                    <a href="#contact" class="text-primary font-bold hover:text-primaryDark flex items-center gap-1">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    <div class="p-8">
+                        <h4 class="text-xl font-serif font-bold text-stone-900 mb-3">Healthy & Fresh Eats</h4>
+                        <p class="text-stone-600 mb-4">Nourish your body without sacrificing flavor. Discover macro-friendly, vibrant bowls, salads, and lean protein dishes perfect for meal prep.</p>
+                    </div>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Most Popular</div>
-                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-stone-100 hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Delicious rustic pizza" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <h3 class="text-2xl font-bold text-dark mb-3">Obedience Training</h3>
-                    <p class="text-gray-600 mb-6 line-clamp-3">Master real-world obedience. Teach your dog to listen off-leash, stop pulling on walks, and reliably come when called under distraction.</p>
-                    <ul class="space-y-2 mb-8 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Loose Leash Walking</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Reliable Recall (Come)</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sit/Stay under distraction</li>
-                    </ul>
-                    <a href="#contact" class="text-primary font-bold hover:text-primaryDark flex items-center gap-1">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    <div class="p-8">
+                        <h4 class="text-xl font-serif font-bold text-stone-900 mb-3">Comfort Classics</h4>
+                        <p class="text-stone-600 mb-4">Craving something hearty? Master homemade pizzas, rich pastas, and slow-cooked roasts that bring the whole family to the table.</p>
+                    </div>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
-                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-stone-100 hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Decadent chocolate dessert" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <h3 class="text-2xl font-bold text-dark mb-3">Behavior Modification</h3>
-                    <p class="text-gray-600 mb-6 line-clamp-3">Targeted solutions for severe issues like leash reactivity, resource guarding, separation anxiety, and excessive barking.</p>
-                    <ul class="space-y-2 mb-8 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Leash Reactivity & Aggression</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Separation Anxiety</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Fear & Phobia Management</li>
-                    </ul>
-                    <a href="#contact" class="text-primary font-bold hover:text-primaryDark flex items-center gap-1">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    <div class="p-8">
+                        <h4 class="text-xl font-serif font-bold text-stone-900 mb-3">Decadent Desserts</h4>
+                        <p class="text-stone-600 mb-4">Indulge your sweet tooth with our foolproof baking guides. From gooey chocolate brownies to elegant seasonal fruit tarts.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section id="why-us" class="py-20 bg-white">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-sage-700 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex gap-16 items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="https://placehold.co/600x600/f8fafc/94a3b8?text=Trainer+Working+With+Dog" alt="Trainer working with a dog" class="rounded-2xl shadow-lg w-full h-auto object-cover">
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Why Choose Pawsitive Training?</h2>
-                    <p class="text-gray-600 text-lg mb-8">We don't just train dogs; we educate owners. Our proven methodologies focus on clear communication and mutual respect.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-dark">Force-Free & Positive</h4>
-                                <p class="text-gray-600 mt-1">We rely on modern, science-based positive reinforcement techniques. No shock collars, no fear tactics.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-dark">Certified Professionals</h4>
-                                <p class="text-gray-600 mt-1">Our trainers are fully certified, insured, and undergo continuous education in canine behavioral science.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-dark">Lifetime Support</h4>
-                                <p class="text-gray-600 mt-1">Graduates of our programs receive lifetime email/phone support to ensure long-term training success.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mb-16">
+                <h2 class="text-amber-400 font-semibold tracking-wider uppercase text-sm mb-2">Success Stories</h2>
+                <h3 class="text-3xl font-serif font-extrabold sm:text-4xl">What Our Community Says</h3>
             </div>
-        </div>
-    </section>
-
-    <!-- Call to Action / Contact Form Section -->
-    <section id="contact" class="bg-primary text-white py-20">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Transform Your Dog?</h2>
-            <p class="text-lg md:text-xl text-amber-100 mb-10">Fill out the form below or call us today to schedule your initial consultation.</p>
             
-            <div class="bg-white text-gray-800 rounded-2xl shadow-2xl p-8 md:p-12 text-left">
-                <form action="#" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-                            <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="John Doe">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Testimonial 1 -->
+                <div class="bg-sage-600 rounded-2xl p-8 shadow-inner relative">
+                    <svg class="absolute top-6 left-6 w-10 h-10 text-sage-500 opacity-50" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/></svg>
+                    <p class="text-lg relative z-10 pl-10 italic mb-6">"Before Savoria, I relied entirely on takeout. The recipes are so well-explained that I actually enjoy cooking now. The Lemon Herb Chicken is a weekly staple in my house!"</p>
+                    <div class="flex items-center mt-4">
+                        <div class="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center text-xl font-bold text-white mr-4">
+                            S
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                            <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="(555) 123-4567">
+                            <h4 class="font-bold text-white">Sarah Jenkins</h4>
+                            <p class="text-sage-200 text-sm">Working Professional, Texas</p>
                         </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Dog's Breed & Age</label>
-                        <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="e.g., Golden Retriever, 6 months">
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-sage-600 rounded-2xl p-8 shadow-inner relative">
+                    <svg class="absolute top-6 left-6 w-10 h-10 text-sage-500 opacity-50" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/></svg>
+                    <p class="text-lg relative z-10 pl-10 italic mb-6">"The 'Free Weekly Recipe Book' completely transformed our dinner routine. No more 'what's for dinner?' stress. Highly recommend for anyone looking to eat better without the hassle."</p>
+                    <div class="flex items-center mt-4">
+                        <div class="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center text-xl font-bold text-white mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Mark T.</h4>
+                            <p class="text-sage-200 text-sm">Father of Two, California</p>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Main Training Goals / Issues</label>
-                        <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Tell us how we can help..."></textarea>
-                    </div>
-                    <button type="button" class="w-full bg-primary hover:bg-primaryDark text-white font-bold text-lg py-4 rounded-lg shadow-md transition transform hover:-translate-y-0.5">
-                        Submit Request
-                    </button>
-                    <p class="text-xs text-center text-gray-500 mt-4">By submitting this form, you agree to our privacy policy. We will never spam you.</p>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-gray-300 py-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                        <span class="font-bold text-xl text-white tracking-tight">Pawsitive<span class="text-primary">Training</span></span>
+    <!-- Lead Capture Section -->
+    <section id="lead-capture" class="py-20 bg-amber-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden md:flex">
+                <div class="md:w-1/2 p-10 md:p-14 bg-sage-50 flex flex-col justify-center">
+                    <h3 class="text-3xl font-serif font-extrabold text-stone-900 mb-4">Get Our Free Weekly Recipe Book</h3>
+                    <p class="text-stone-600 mb-6">Join 50,000+ home chefs. Enter your details below and we'll send you our exclusive digital cookbook featuring our top 20 fan-favorite recipes immediately.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-sm text-stone-700">
+                            <svg class="h-5 w-5 text-amber-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            Instant PDF Download
+                        </li>
+                        <li class="flex items-center text-sm text-stone-700">
+                            <svg class="h-5 w-5 text-amber-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            Weekly Meal Plans via Email
+                        </li>
+                        <li class="flex items-center text-sm text-stone-700">
+                            <svg class="h-5 w-5 text-amber-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            100% Free, No Catch
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 p-10 md:p-14">
+                    <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-stone-700">Full Name *</label>
+                            <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 border border-stone-300 rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm bg-stone-50" placeholder="Jane Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-stone-700">Email Address *</label>
+                            <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 border border-stone-300 rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm bg-stone-50" placeholder="jane@example.com">
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-md text-lg font-bold text-white bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
+                                Send My Free Recipe Book
+                            </button>
+                        </div>
+                        <p class="text-xs text-stone-400 text-center mt-4">
+                            By submitting this form, you agree to our Privacy Policy and Terms of Service. We respect your privacy and will never sell your information.
+                        </p>
+                    </form>
+                    
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="success-message" class="hidden mt-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md relative" role="alert">
+                        <strong class="font-bold">Success!</strong>
+                        <span class="block sm:inline"> Please check your inbox for your free recipe book.</span>
                     </div>
-                    <p class="text-gray-400 text-sm max-w-sm">
-                        Dedicated to building better relationships between dogs and their owners through positive, reward-based training methods.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Ads Compliant Footer -->
+    <footer class="bg-stone-900 text-stone-300 py-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="text-2xl font-serif font-bold text-white flex items-center gap-2 mb-4">
+                        <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        Savoria
+                    </span>
+                    <p class="text-sm text-stone-400">
+                        Making gourmet cooking accessible, fun, and delicious for every home. Savor the moment.
                     </p>
                 </div>
+                
                 <div>
                     <h4 class="text-white font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#services" class="hover:text-primary transition">Services</a></li>
-                        <li><a href="#why-us" class="hover:text-primary transition">About Us</a></li>
-                        <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+                        <li><a href="#about" class="hover:text-amber-400 transition-colors">About Us</a></li>
+                        <li><a href="#recipes" class="hover:text-amber-400 transition-colors">Our Recipes</a></li>
+                        <li><a href="#testimonials" class="hover:text-amber-400 transition-colors">Testimonials</a></li>
                     </ul>
                 </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal & Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <!-- Strict Google Ads compliance requirements below -->
+                        <li><a href="#" onclick="showModal('privacy')" class="hover:text-amber-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showModal('terms')" class="hover:text-amber-400 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" onclick="showModal('contact')" class="hover:text-amber-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
                 <div>
                     <h4 class="text-white font-semibold mb-4">Contact Info</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li>📞 (555) 123-4567</li>
-                        <li>✉️ hello@pawsitivetraining.example.com</li>
-                        <li>📍 123 Dogwood Lane, Canine City, CA 90210</li>
+                    <ul class="space-y-2 text-sm text-stone-400">
+                        <!-- Realistic Business info for Ad compliance -->
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-sage-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            Savoria Recipes Business HQ<br>
+                            456 Culinary Lane,<br>
+                            Tasteville, TX 75001
+                        </li>
+                        <li class="flex items-center mt-3">
+                            <svg class="w-5 h-5 mr-2 text-sage-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            1-800-555-FOOD
+                        </li>
+                        <li class="flex items-center mt-3">
+                            <svg class="w-5 h-5 mr-2 text-sage-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            support@savoriarecipes.com
+                        </li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-                <p>&copy; 2026 Pawsitive Training LLC. All rights reserved.</p>
-                <!-- Essential Trust Links for Ad Compliance -->
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
-                    <a href="#" class="hover:text-white transition">Refund Policy</a>
-                </div>
+            <div class="border-t border-stone-800 mt-10 pt-8 text-sm text-center text-stone-500">
+                &copy; <span id="year"></span> Savoria Recipes. All rights reserved. This site is not a part of the Google website or Google Inc.
             </div>
         </div>
     </footer>
 
+    <!-- Simple Modals for Google Ads required pages to stay on single file -->
+    <div id="legal-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm px-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 id="modal-title" class="text-2xl font-serif font-bold text-stone-900 mb-4">Title</h2>
+            <div id="modal-content" class="text-stone-600 prose prose-sm">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        // Handle Lead form purely on frontend to prevent redirects (Google Ads Compliance constraint)
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            // In a real scenario, this would send an AJAX request to a CRM/Email service.
+            // For the static landing page constraint, we show a success message to the user.
+            const form = e.target;
+            const successMsg = document.getElementById('success-message');
+            
+            // Disable button to prevent double clicks
+            const btn = form.querySelector('button');
+            btn.innerHTML = 'Sending...';
+            btn.disabled = true;
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                form.reset();
+                successMsg.classList.remove('hidden');
+                btn.innerHTML = 'Send My Free Recipe Book';
+                btn.disabled = false;
+                btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 5000);
+            }, 1000);
+        }
+
+        // Modal Logic for Legal pages (Keeps user on the same page, strict adherence to no-redirect policy)
+        const modalData = {
+            privacy: {
+                title: "Privacy Policy",
+                content: "<p>Last updated: " + new Date().toLocaleDateString() + "</p><p>Savoria Recipes ('we', 'us', or 'our') respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p><h3>1. The data we collect about you</h3><p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows: Identity Data (First name, last name), Contact Data (Email address, telephone number). We do not collect any Special Categories of Personal Data about you.</p><h3>2. How we use your personal data</h3><p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data to provide you with the free recipe resources you requested and to manage our relationship with you.</p><h3>3. Data Security</h3><p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way.</p>"
+            },
+            terms: {
+                title: "Terms of Service",
+                content: "<p>Last updated: " + new Date().toLocaleDateString() + "</p><p>These Terms of Service govern your use of the Savoria Recipes website and services. By accessing or using our website, you agree to be bound by these Terms.</p><h3>1. Use of Website</h3><p>You may use our website for lawful purposes only. You must not use our website in any way that causes, or may cause, damage to the website or impairment of the availability or accessibility of the website.</p><h3>2. Intellectual Property</h3><p>Unless otherwise stated, Savoria Recipes and/or its licensors own the intellectual property rights for all material on Savoria Recipes. All intellectual property rights are reserved.</p><h3>3. Disclaimer</h3><p>The materials on Savoria Recipes's website are provided on an 'as is' basis. Savoria Recipes makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>"
+            },
+            contact: {
+                title: "Contact Us",
+                content: "<p>We're here to help! If you have any questions, concerns, or feedback, please reach out to us using the information below:</p><ul><li><strong>Email:</strong> support@savoriarecipes.com</li><li><strong>Phone:</strong> 1-800-555-FOOD</li><li><strong>Mailing Address:</strong><br>Savoria Recipes Business HQ<br>456 Culinary Lane,<br>Tasteville, TX 75001</li></ul><p>Our customer service hours are Monday through Friday, 9:00 AM to 5:00 PM CST. We aim to respond to all inquiries within 24-48 business hours.</p>"
+            }
+        };
+
+        const modal = document.getElementById('legal-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+
+        function showModal(type) {
+            event.preventDefault();
+            if(modalData[type]) {
+                modalTitle.innerText = modalData[type].title;
+                modalContent.innerHTML = modalData[type].content;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore background scrolling
+        }
+
+        // Close modal when clicking outside the box
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
